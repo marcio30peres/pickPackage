@@ -1,16 +1,15 @@
-import agencyImg from '../../assets/agency.svg'
+import { useContext } from 'react'
+import { PositionContext } from '../../contexts/PositionContext'
+
 import { Container } from './styles'
+import agencyImg from '../../assets/agency.svg'
 
 export function Agency() {
-    const position = {
-        x: Math.floor(window.innerWidth/64) - 2,
-        y: Math.floor(window.innerHeight/64) - 2
-    }
-
+    const {maxPosition} = useContext(PositionContext)
     return (
         <Container style={{
-            left: `${position.x*4}rem`, 
-            top: `${position.y*4}rem`}}
+            left: `${maxPosition.x*4}rem`, 
+            top: `${maxPosition.y*4}rem`}}
         >
             <img src={agencyImg} alt="Agency"/>
         </Container>
